@@ -1,23 +1,27 @@
-import Vue from 'vue'
-import router from './router'
+import router from "@/router";
+import store from "@/store";
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import Vue from 'vue';
+import VueRouter from "vue-router";
+import App from './App.vue';
 
-import BootstrapVue from "bootstrap-vue"
 
-import App from './App'
 
-import Default from './Layout/Wrappers/baseLayout.vue';
-import Pages from './Layout/Wrappers/pagesLayout.vue';
+
+
 
 Vue.config.productionTip = false;
-
+Vue.use(IconsPlugin)
 Vue.use(BootstrapVue);
-
-Vue.component('default-layout', Default);
-Vue.component('userpages-layout', Pages);
+Vue.use(ElementUI)
+Vue.use(VueRouter)
 
 new Vue({
-  el: '#app',
+  render: h => h(App),
   router,
-  template: '<App/>',
-  components: { App }
-});
+  store
+}).$mount('#app')

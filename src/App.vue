@@ -1,25 +1,36 @@
 <template>
-  <div id="app">
-    <component :is="layout">
-        <transition name="fade" mode="out-in">
-            <router-view></router-view>
-        </transition>
-    </component>
-  </div>
+    <router-view />
 </template>
 
 <script>
-  const default_layout = "default";
-
-  export default {
-    computed: {
-      layout() {
-        return (this.$route.meta.layout || default_layout) + '-layout';
-      }
-    }
-  }
+export default {
+    name: "App",
+    components: {},
+};
 </script>
 
-<style lang="scss">
-  @import "assets/base.scss";
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,500;1,700;1,800&family=Ubuntu:ital,wght@1,500;1,700&display=swap");
+/*
+font-family: 'Poppins', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    transition: all 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
 </style>
